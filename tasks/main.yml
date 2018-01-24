@@ -1,0 +1,33 @@
+---
+# http://docs.ansible.com/ansible/latest/set_fact_module.html
+- name: Merge awscli_defaults and awscli variables
+  set_fact:
+    awscli_combined: "{{ awscli_defaults | combine(awscli, recursive=True) }}"
+
+- name: Install pip
+  apt:
+    name: python-pip
+    state: installed
+
+# http://docs.ansible.com/ansible/latest/pip_module.html
+- name: Upgrade pip
+  pip:
+    name: pip
+    extra_args: --upgrade
+
+- name: Install aws-cli
+  pip:
+    name: awscli
+    extra_args: --upgrade --user
+
+# http://docs.ansible.com/ansible/latest/file_module.html
+- name: Create aws config directory
+  file:
+    path: ~/.aws
+    state: directory
+
+# http://docs.ansible.com/ansible/latest/template_module.html
+- name: Copy config file
+  template:
+    src: "config.tpl"
+    dest: "~/.aws/config"

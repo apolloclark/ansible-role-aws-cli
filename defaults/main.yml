@@ -1,0 +1,10 @@
+---
+# https://osquery.readthedocs.io/en/stable/deployment/configuration/
+
+# Overload variables using the dict named "osquery"
+awscli:
+  output: "json"
+
+awscli_defaults:
+  output: "text"
+  region: "us-east-1"
