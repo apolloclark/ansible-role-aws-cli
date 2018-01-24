@@ -9,7 +9,12 @@ None.
 
 ## Role Variables
 
-None.
+Available variables are listed below, along with default values (see `defaults/main.yml`).
+You can overload the variables by creating a dictionary called "awscli", ex:
+
+    awscli:
+      output: "json"
+
 
 ## Dependencies
 
