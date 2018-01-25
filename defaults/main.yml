@@ -8,3 +8,4 @@ awscli:
 awscli_defaults:
   output: "text"
   region: "us-east-1"
+  pip_user: "root"
