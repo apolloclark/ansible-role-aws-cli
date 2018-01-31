@@ -19,7 +19,8 @@
   pip:
     name: awscli
     extra_args: --upgrade --user
-  become_user: "{{ awscli_combined.pip_user }}"
+  become_user: "{{ item }}"
+  with_items: "{{ awscli_combined.pip_user }}"
 
 # http://docs.ansible.com/ansible/latest/file_module.html
 - name: Create aws config directory
