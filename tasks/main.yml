@@ -27,11 +27,13 @@
   file:
     path: ~/.aws
     state: directory
-  become_user: "{{ awscli_combined.pip_user }}"
+  become_user: "{{ item }}"
+  with_items: "{{ awscli_combined.pip_user }}"
 
 # http://docs.ansible.com/ansible/latest/template_module.html
 - name: Copy config file
   template:
     src: "config.tpl"
     dest: "~/.aws/config"
-  become_user: "{{ awscli_combined.pip_user }}"
+  become_user: "{{ item }}"
+  with_items: "{{ awscli_combined.pip_user }}"
