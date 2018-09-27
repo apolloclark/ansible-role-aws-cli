@@ -2,6 +2,7 @@
 dependencies: []
 
 galaxy_info:
+  role_name: aws-cli
   author: apolloclark
   description: Install and configure aws-cli
   company: "Apollo Clark"
