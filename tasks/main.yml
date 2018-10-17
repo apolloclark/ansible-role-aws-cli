@@ -7,7 +7,7 @@
 - name: Install pip
   apt:
     name: python-pip
-    state: installed
+    state: present
 
 # http://docs.ansible.com/ansible/latest/pip_module.html
 - name: Upgrade pip
